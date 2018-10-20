@@ -3,23 +3,20 @@ $(function () {
     var socket = io();
 
     socket.on('time', function (msg) {
-        // $('.timer-div').html(msg);
-        // $('.timer-div').html(audio.currentTime);
+         //$('.timer-div').html(msg);
+         //$('.timer-div').html(audio.currentTime);
     });
 
     var audio = document.getElementById('audio-id');
 
-    
-
     socket.on('first', function (msg) {
-        // $('#audio-id').attr('controls', "1"); 
-
-        // $('.control-button').show();
-        // $('.control-button').removeClass('hide');
+        $('#audio-id').attr('controls', "1"); 
+        $('.control-button').show();
+        $('.control-button').removeClass('hide');
 
         audio.ontimeupdate = function () {
             socket.emit("seek", audio.currentTime);
-        // $('.timer-div').html(audio.currentTime);
+         $('.timer-div').html(audio.currentTime);
         };
 
         $('#play-button').click(function() {
