@@ -19,8 +19,6 @@ $(function () {
 
     var audio = document.getElementById('audio-id');
 
-    
-
     socket.on('first', function (msg) {
         // $('#audio-id').attr('controls', "1"); 
 
@@ -98,8 +96,4 @@ $(function () {
         $('#play-button').removeClass('hide');
         $('#pause-button').addClass('hide');
     })
-
-
-
-
 });
