@@ -39,7 +39,7 @@ $(function () {
 
     socket.on("current", function (msg) {
         var diff = audio.currentTime - msg;
-        if (diff < 0 || diff > 2) {
+        if (diff < 0 || diff > 20) {
             audio.currentTime = msg;
         }
         $('.timer-span').html(msg);
@@ -55,7 +55,7 @@ $(function () {
 
         if (msg == 1) {
             label = "Sit Next To Me";
-            $('.audio-source').attr('src', 'music/SitNextToMe.mp3')
+            $('.audio-source').attr('src', 'https://p.scdn.co/mp3-preview/229bb6a4c7011158cc7e1aff11957e274dc05e84?cid=774b29d4f13844c495f206cafdad9c86')
         }
         else if (msg == 2) {
             label = "One Foot";
@@ -85,8 +85,4 @@ $(function () {
         $('#play-button').removeClass('hide');
         $('#pause-button').addClass('hide');
     })
-
-
-
-
 });
