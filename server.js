@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/channel1', function (req, res) {
-    res.sendFile(__dirname + '/channel.html');
+    res.sendFile(__dirname + '/html/channel.html');
 });
 
 io.on('connection', function (socket) {
@@ -55,8 +55,6 @@ io.on('connection', function (socket) {
 };*/
 
 app.use(express.static(__dirname ));
+var port = process.env.PORT || 1337;
 
-http.listen(8888, function () {
-    console.log ("Server running on port 8888");
-    // startTimer();
-});
+http.listen(port);
