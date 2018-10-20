@@ -13,17 +13,26 @@ app.get('/channel1', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-    console.log("Client Connected");
+//    console.log("Client Connected");
 
+socket.on('room',function(room)
+    {
+        socket.join(room);
+    });
+    
+    room = "testroom";
+    io.sockets.in(room).emit('message', 'holy shit it worked');
+    io.sockets.in('notroom').emit('message', 'yes');
+    
     if (i == 0) {
-        console.log("first");
+//        console.log("first");
         socket.emit("first", "first");
     }
 
-    i = i + 1;
+//    i = i + 1;
 
     socket.on("seek", function(msg) {
-        console.log(msg);
+//        console.log(msg);
         io.emit("current", msg);
     });
 
@@ -40,8 +49,8 @@ io.on('connection', function (socket) {
     });
 
     socket.on("disconnect", function () {
-        console.log("Client Disconnected");
-        i = i - 1;
+//        console.log("Client Disconnected");
+//        i = i - 1;
     });
 });
 
@@ -56,7 +65,7 @@ io.on('connection', function (socket) {
 
 app.use(express.static(__dirname ));
 
-http.listen(8888, function () {
-    console.log ("Server running on port 8888");
-    // startTimer();
+http.listen(8887, function () {
+//    console.log ("Server running on port 8888");
+//     startTimer();
 });
