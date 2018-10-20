@@ -57,16 +57,16 @@ $(function () {
         var label = "";
 
         if (msg == 1) {
-            label = "Na Na Na (Na Na Na Na Na Na Na Na Na)";
-            $('.audio-source').attr('src', 'music/Na Na Na (Na Na Na Na Na Na Na Na Na).mp3')
+            label = "Sit Next To Me";
+            $('.audio-source').attr('src', 'music/SitNextToMe.mp3')
         }
         else if (msg == 2) {
-            label = "Planetary (GO!)";
-            $('.audio-source').attr('src', 'Planetary (GO).mp3')
+            label = "One Foot";
+            $('.audio-source').attr('src', 'music/OneFoot.mp3')
         }
         if (msg == 3) {
-            label = "Famous Last Words";
-            $('.audio-source').attr('src', 'music/Famous Last Words.mp3')
+            label = "Kamikaze";
+            $('.audio-source').attr('src', 'music/Kamikaze.mp3')
         }
 
         $('.label').html(label);
