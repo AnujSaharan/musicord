@@ -49,14 +49,14 @@ $(function () {
 
         $('#play-button').click(function() {
             console.log("Play Clicked");
-            socket.emit("play",audio.getCurrentTime());
+            socket.emit("play",audio.getCurrentTime(), room);
             //console.log(audio.getCurrentTime());
             
         });
 
         $('#pause-button').click(function() {
             console.log("Pause Clicked");
-            socket.emit("pause", audio.getCurrentTime());
+            socket.emit("pause", audio.getCurrentTime(), room);
         });
 
         $('input[name=track]').attr('disabled', false);
@@ -109,6 +109,8 @@ $(function () {
 
     socket.on("play", function (msg) {
         // audio.currentTime = msg;
+        console.log("ROOMNUMBER:" +room);
+        socket.emit()
         audio.play();
         // $('#play-button').addClass('hide');
         // $('#pause-button').removeClass('hide');

@@ -4,7 +4,7 @@ var app = express();
 var http = require("http").Server(app);
 var io = require('socket.io')(http);
 var i = 0;
-var roomNumber = 0;
+// var roomNumber = 0;
 var token = null;
 const uuidv1 = require('uuid/v1');
 
@@ -113,7 +113,7 @@ io.on('connection', function (socket) {
 socket.on('room',function(room)
     {   
         socket.join(room);
-        roomNumber = room;
+        //roomNumber = room;
         io.sockets.in(room).emit('message', 'room' + room);
     });
     
@@ -129,18 +129,18 @@ socket.on('room',function(room)
 
 //    i = i + 1;
 
-    socket.on("seek", function(msg) {
+    socket.on("seek", function(msg, room) {
 //        console.log(msg);
         io.sockets.in(roomNumber).emit("current", msg);
     });
 
-    socket.on("play", function(msg) {
-        io.sockets.in(roomNumber).emit("play", msg);
-        console.log(roomNumber);
+    socket.on("play", function(msg, room) {
+        io.sockets.in(room).emit("play", msg);
+        console.log(room);
     });
 
-    socket.on("pause",function(msg) {
-        io.sockets.in(roomNumber).emit("pause", msg);
+    socket.on("pause",function(msg, room) {
+        io.sockets.in(room).emit("pause", msg);
     });
 
     socket.on("reset", function(msg) {

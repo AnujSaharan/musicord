@@ -91,6 +91,19 @@
             // });
         });
         
+        // wavesurfer.previous(function() {
+        //     if(songIndex == 0) {songIndex = 3;}
+        //     songIndex=(songIndex - 1);
+        //     wavesurfer.load("../music/" + songList[songIndex]);
+        //     document.getElementById("SongTitle").innerHTML = songNames[songIndex];
+        // });
+        // 
+        // wavesurfer.next(function()) {
+        //     songIndex=(songIndex + 1) % 3;
+        //     wavesurfer.load("../music/" + songList[songIndex]);
+        //     document.getElementById("SongTitle").innerHTML = songNames[songIndex];
+        // });
+        // 
     	wavesurfer.load("../music/" + songList[0]);
         
     	if (annyang) {
@@ -105,21 +118,21 @@
     
                 'next': function () {
                     songIndex=(songIndex + 1) % 3;
-                    wavesurfer.load("Media/" + songList[songIndex]);
+                    wavesurfer.load("../music/" + songList[songIndex]);
     				document.getElementById("SongTitle").innerHTML = songNames[songIndex];
                 },
     
                 'previous': function () {
                     if(songIndex == 0) {songIndex = 3;}
                     songIndex=(songIndex - 1);
-                    wavesurfer.load("Media/" + songList[songIndex]);
+                    wavesurfer.load("../music/" + songList[songIndex]);
     				document.getElementById("SongTitle").innerHTML = songNames[songIndex];
                 }
             };
             annyang.addCommands(commands);
             annyang.start();
         }
-    	</script>
+    	</script> -->
         <!-- <div class="row"> -->
     		
             <!-- <div class="large-12 medium-12 small-12 columns"> -->
@@ -127,7 +140,7 @@
         <!-- style="max-width:100%"></div> -->
     			<!-- <div id="waveform-timeline"></div> -->
     		<!-- </div> -->
-    	<!-- </div> -->
+    	<!-- </div>
     	
     	
         
@@ -143,7 +156,7 @@
   
   <!-- <button class="btn btn-1 btn-1a">Button</button> -->
   
-  <button id="play-button" class="btn btn-1 btn-1a" onclick="wavesurfer.play()">
+  <button id="previous-button" class="btn btn-1 btn-1a" onclick="wavesurfer.previous()">
     <i class="glyphicon glyphicon-play"></i>
     Previous
   </button>    
@@ -155,7 +168,7 @@
     <i class="glyphicon glyphicon-play"></i>
     Pause
   </button>    
-  <button id="play-button" class="btn btn-1 btn-1a" onclick="wavesurfer.play()">
+  <button id="next-button" class="btn btn-1 btn-1a" onclick="wavesurfer.next()">
     <i class="glyphicon glyphicon-play"></i>
     Next
   </button>    
