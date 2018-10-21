@@ -165,7 +165,4 @@ socket.on('room',function(room)
 app.use(express.static(__dirname ));
 var port = process.env.PORT || 1337;
 
-http.listen(8888, function () {
-console.log ("Server running on port 8888");
-//     startTimer();
-});
+http.listen(port);
