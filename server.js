@@ -4,9 +4,7 @@ var app = express();
 var http = require("http").Server(app);
 var io = require('socket.io')(http);
 var i = 0;
-<<<<<<< HEAD
 var roomNumber = 0;
-=======
 var token = null;
 const uuidv1 = require('uuid/v1');
 
@@ -44,7 +42,6 @@ request.post(options,
 
 
 
->>>>>>> neel-testing
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/html/index.html');
@@ -91,6 +88,22 @@ app.get('/search/:trackname', function (req, res) {
             return res.badRequest();
        }
 
+    });
+});
+
+app.get('/gettracks', function (req, res) {
+    var alltracks = [];
+    var citiesRef = db.collection('tracknames');
+    var allCities = citiesRef.get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        alltracks.push(doc.data().url);
+        console.log(doc.id, '=>', doc.data().url);
+      });
+      res.send(alltracks);
+    })
+    .catch(err => {
+      console.log('Error getting documents', err);
     });
 });
 

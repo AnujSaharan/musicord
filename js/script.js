@@ -1,10 +1,10 @@
 
 $(function () {
-<<<<<<< HEAD
     
     var socket = io.connect();
     var str = window.location.pathname
     str = str[str.length-1];
+    var alltracks = [];
     
     var room = str;
     //alert(room);
@@ -17,18 +17,20 @@ $(function () {
     });
     
     
-=======
 
     $('#tracknamebtn').click(function(){
         console.log(window.location.host + '/search/'+encodeURIComponent($('#trackname').val()));
         $.get('https://musiicord.appspot.com/search/'+encodeURIComponent($('#trackname').val()), function(data){
             console.log(data);
-        })
+        });
     });
+
+    $.get('https://musiicord.appspot.com/gettracks'), function(data){
+        alltracks = data;
+    };
 
     var socket = io();
 
->>>>>>> neel-testing
     socket.on('time', function (msg) {
          $('.timer-div').html(msg);
          $('.timer-div').html(audio.currentTime);
@@ -80,10 +82,11 @@ $(function () {
         $('input[value='+ msg +']').attr('checked', true);
 
         var label = "";
+        var songList = alltracks;
 
         if (msg == 1) {
             label = "Sit Next To Me";
-            $('.audio-source').attr('src', 'music/SitNextToMe.mp3')
+            $('.audio-source').attr('src', songList[0])
         }
         else if (msg == 2) {
             label = "One Foot";
