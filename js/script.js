@@ -1,6 +1,6 @@
 
 $(function () {
-<<<<<<< HEAD
+
     
     var socket = io.connect();
     var str = window.location.pathname
@@ -17,7 +17,7 @@ $(function () {
     });
     
     
-=======
+
 
     $('#tracknamebtn').click(function(){
         console.log(window.location.host + '/search/'+encodeURIComponent($('#trackname').val()));
@@ -28,7 +28,7 @@ $(function () {
 
     var socket = io();
 
->>>>>>> neel-testing
+
     socket.on('time', function (msg) {
          $('.timer-div').html(msg);
          $('.timer-div').html(audio.currentTime);

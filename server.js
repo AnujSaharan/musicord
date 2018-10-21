@@ -4,9 +4,9 @@ var app = express();
 var http = require("http").Server(app);
 var io = require('socket.io')(http);
 var i = 0;
-<<<<<<< HEAD
+
 var roomNumber = 0;
-=======
+
 var token = null;
 const uuidv1 = require('uuid/v1');
 
@@ -41,10 +41,6 @@ request.post(options,
     console.log('Upload successful!  Server responded with:', JSON.parse(body).access_token);
   });
 
-
-
-
->>>>>>> neel-testing
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/html/index.html');
