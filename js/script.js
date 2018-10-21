@@ -29,12 +29,12 @@ $(function () {
     var socket = io();
 
     socket.on('time', function (msg) {
-         $('.timer-div').html(msg);
-         $('.timer-div').html(audio.getCurrentTime());
+         // $('.timer-div').html(msg);
+         // $('.timer-div').html(audio.getCurrentTime());
     });
 
     var audio=wavesurfer;
-    audio.load("../music/OneFoot.mp3"); //document.getElementById('audio-id');
+    audio.load("../music/Sit Next To Me.mp3"); //document.getElementById('audio-id');
     
     socket.on('first', function (msg) {
         // $('#audio-id').attr('controls', "1"); 
@@ -67,7 +67,7 @@ $(function () {
     });
 
     socket.on("current", function (msg) {
-        var diff = audio.getCurrentTime() - msg;
+        var diff = audio.getCurrentTime();
         //if (diff < 0 || diff > 2000) {
         //    audio.currentTime = msg;
         //}
@@ -108,14 +108,14 @@ $(function () {
 
 
     socket.on("play", function (msg) {
-        audio.currentTime = msg;
+        // audio.currentTime = msg;
         audio.play();
         // $('#play-button').addClass('hide');
         // $('#pause-button').removeClass('hide');
     });
 
     socket.on("pause", function(msg) {
-        audio.currentTime = msg;
+        //audio.currentTime = msg;
         audio.pause();
         // $('#play-button').removeClass('hide');
         // $('#pause-button').addClass('hide');

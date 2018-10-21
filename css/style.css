@@ -5,6 +5,17 @@
 }
 
 @font-face {
+    font-family: Leixo;
+    src: url('../Fonts/Leixo.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: Quantify;
+    src: url('../Fonts/Quantify.ttf') format("truetype");
+}
+
+
+@font-face {
     font-family: Neou;
     src: url('../Fonts/Neou.ttf') format("truetype");
 }
@@ -21,11 +32,11 @@
 
 h1 {
     color: white;
-    font-weight: 20;
-    font-family: Leixo;
-    font-size: 700%;
+    font-weight: 25;
+    font-family: Quantify;
+    font-size: 800%;
     margin-top: 1%;   
-    padding: 1% 0% 0% 0%;
+    padding: 9% 0% 0% 0%;
     text-align: center;
 }
 
@@ -87,7 +98,7 @@ h1 {
 #footerText{
     color: white;
     font-family: Exo2;
-    font-size: 100%;
+    font-size: 150%;
     left: 50%;
     position: absolute;
     text-align: center;
@@ -98,9 +109,9 @@ h1 {
 
 #SongTitle {
     color: white;
-    font-family: Neou;
+    font-family: Exo2;
     font-size: 300%;
-    padding: 10% 0% 0% 0%;
+    padding: 5% 0% 0% 0%;
     text-align: center;
 }
 
