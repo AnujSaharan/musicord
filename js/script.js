@@ -1,4 +1,12 @@
+
 $(function () {
+
+    $('#tracknamebtn').click(function(){
+        console.log(window.location.host + '/search/'+encodeURIComponent($('#trackname').val()));
+        $.get('https://musiicord.appspot.com/search/'+encodeURIComponent($('#trackname').val()), function(data){
+            console.log(data);
+        })
+    });
 
     var socket = io();
 
