@@ -82,23 +82,24 @@ $(function () {
 
         var label = "";
         var alltracks = [];
-        $.get('https://musiicord.appspot.com/gettracks'), function(data){
-            console.log(JSON.parse(data)[0]);
-            alltracks = JSON.parse(data);
-        };
-        console.log(alltracks[0]);
-        if (msg == 1) {
-            label = "Sit Next To Me";
-            $('.audio-source').attr('src', alltracks[0])
-        }
-        else if (msg == 2) {
-            label = "One Foot";
-            $('.audio-source').attr('src', 'music/OneFoot.mp3')
-        }
-        if (msg == 3) {
-            label = "Kamikaze";
-            $('.audio-source').attr('src', 'music/Kamikaze.mp3')
-        }
+        $.get('https://musiicord.appspot.com/gettracks', function(data){
+            alltracks = data.alltracks;
+        }).done(function(){
+            if (msg == 1) {
+                label = "Sit Next To Me";
+                $('.audio-source').attr('src', alltracks[0])
+            }
+            else if (msg == 2) {
+                label = "One Foot";
+                $('.audio-source').attr('src', alltracks[0])
+            }
+            if (msg == 3) {
+                label = "Kamikaze";
+                $('.audio-source').attr('src', 'music/Kamikaze.mp3')
+            }
+
+        });
+        
 
         $('.label').html(label);
         audio.load();

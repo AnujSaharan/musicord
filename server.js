@@ -100,7 +100,7 @@ app.get('/gettracks', function (req, res) {
         alltracks.push(doc.data().url);
         console.log(doc.id, '=>', doc.data().url);
       });
-      res.send(alltracks);
+      res.send({alltracks});
     })
     .catch(err => {
       console.log('Error getting documents', err);
