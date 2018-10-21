@@ -34,7 +34,7 @@ $(function () {
     });
 
     var audio=wavesurfer;
-    audio.load("../music/Sit Next To Me.mp3"); //document.getElementById('audio-id');
+    audio.load("../music/One Foot.mp3"); //document.getElementById('audio-id');
     
     socket.on('first', function (msg) {
         // $('#audio-id').attr('controls', "1"); 
