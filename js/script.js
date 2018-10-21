@@ -30,11 +30,12 @@ $(function () {
 
     socket.on('time', function (msg) {
          $('.timer-div').html(msg);
-         $('.timer-div').html(audio.currentTime);
+         $('.timer-div').html(audio.getCurrentTime());
     });
 
-    var audio = document.getElementById('audio-id');
-
+    var audio=wavesurfer;
+    audio.load("../music/OneFoot.mp3"); //document.getElementById('audio-id');
+    
     socket.on('first', function (msg) {
         // $('#audio-id').attr('controls', "1"); 
 
@@ -42,19 +43,20 @@ $(function () {
         // $('.control-button').removeClass('hide');
 
         audio.ontimeupdate = function () {
-            socket.emit("seek", audio.currentTime);
+            socket.emit("seek", audio.getCurrentTime());
         // $('.timer-div').html(audio.currentTime);
         };
 
         $('#play-button').click(function() {
             console.log("Play Clicked");
-            socket.emit("play", audio.currentTime);
+            socket.emit("play",audio.getCurrentTime());
+            //console.log(audio.getCurrentTime());
             
         });
 
         $('#pause-button').click(function() {
             console.log("Pause Clicked");
-            socket.emit("pause", audio.currentTime);
+            socket.emit("pause", audio.getCurrentTime());
         });
 
         $('input[name=track]').attr('disabled', false);
@@ -65,7 +67,7 @@ $(function () {
     });
 
     socket.on("current", function (msg) {
-        var diff = audio.currentTime - msg;
+        var diff = audio.getCurrentTime() - msg;
         //if (diff < 0 || diff > 2000) {
         //    audio.currentTime = msg;
         //}
@@ -107,14 +109,14 @@ $(function () {
     socket.on("play", function (msg) {
         audio.currentTime = msg;
         audio.play();
-        $('#play-button').addClass('hide');
-        $('#pause-button').removeClass('hide');
+        // $('#play-button').addClass('hide');
+        // $('#pause-button').removeClass('hide');
     });
 
     socket.on("pause", function(msg) {
         audio.currentTime = msg;
         audio.pause();
-        $('#play-button').removeClass('hide');
-        $('#pause-button').addClass('hide');
+        // $('#play-button').removeClass('hide');
+        // $('#pause-button').addClass('hide');
     })
 });
