@@ -1,3 +1,122 @@
+
+@font-face {
+    font-family: Leixo;
+    src: url('../Fonts/Leixo.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: Neou;
+    src: url('../Fonts/Neou.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: TheLightFont;
+    src: url('../Fonts/TheLightFont.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: Exo2;
+    src: url('../Fonts/Exo2.ttf') format("truetype");
+}
+
+h1 {
+    color: white;
+    font-weight: 20;
+    font-family: Leixo;
+    font-size: 700%;
+    margin-top: 1%;   
+    padding: 1% 0% 0% 0%;
+    text-align: center;
+}
+
+#overlay {
+    background-color: rgba(0,0,0,0.8); 
+    bottom: 0;
+    cursor: pointer; 
+    display: none; 
+    height: 100%;
+    left: 0%;
+    position: fixed;
+    right: 0%;
+    top: 0%; 
+    width: 100%; 
+    z-index: 5;
+}
+
+#overlayTextHeading1{
+    color: white;
+    font-family: Leixo;
+    font-size: 300%;
+    margin-top: 4%;    
+    position: static;
+    text-align: center;
+}
+
+#overlayTextHeading2{
+    color: white;
+    font-family: Leixo;
+    font-size: 300%;
+    margin-top: 0%;
+    position: static;
+    text-align: center;
+}
+
+#overlayText1{
+    color: white;
+    font-family: TheLightFont;
+    font-size: 200%;
+    margin-left: 25%;
+    margin-top: 1%;
+    max-width: 50%;
+    position: static;
+    text-align: justify;
+    text-align-last: center;
+}
+
+#overlayText2{
+    color: white;
+    font-family: TheLightFont;
+    font-size: 200%;
+    margin-left: 25%;
+    margin-top: 1%;
+    max-width: 50%;
+    position: static;
+    text-align: center;
+}
+
+#footerText{
+    color: white;
+    font-family: Exo2;
+    font-size: 100%;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 97%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+#SongTitle {
+    color: white;
+    font-family: Neou;
+    font-size: 300%;
+    padding: 10% 0% 0% 0%;
+    text-align: center;
+}
+
+#waveform {
+    padding: 0% 0% 0% 0%;
+}
+
+#granim-canvas {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
 body {
     background: #1565c0;
     padding: 0;
@@ -7,14 +126,26 @@ body {
     font-family: 'Helvetica', sans-serif;
 }
 
-* {
+#granim-canvas {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+/* Gradients wi */
+
+/* * {
   padding: 0;
   margin: 0;
 }
 .full-screen {
   width: 100vw;
   height: 100vh;
-}
+} */
 
 .hide {
     display: none;
@@ -28,11 +159,12 @@ body {
 }
 
 .main-content {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* text-align: center; */
+    /* position: absolute; */
+    max-width: 100%;
+    top: 100%;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
 }
 
 .label {

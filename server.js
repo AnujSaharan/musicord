@@ -3,16 +3,17 @@ var app = express();
 var http = require("http").Server(app);
 var io = require('socket.io')(http);
 var i = 0;
+var roomNumber = 0;
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/html/index.html');
-});
+ });
 
 app.get('/channel1', function (req, res) {
     res.sendFile(__dirname + '/html/channel1.html');
 });
 
-app.get('/channel2', function (req, res) {
+ app.get('/channel2', function (req, res) {
     res.sendFile(__dirname + '/html/channel2.html');
 });
 
@@ -21,16 +22,19 @@ app.get('/channel3', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-//    console.log("Client Connected");
+    console.log("Client Connected");
 
 socket.on('room',function(room)
-    {
+    {   
         socket.join(room);
+        roomNumber = room;
+        io.sockets.in(room).emit('message', 'room' + room);
     });
     
-    room = "testroom";
-    io.sockets.in(room).emit('message', 'holy shit it worked');
-    io.sockets.in('notroom').emit('message', 'yes');
+    //room = "testroom";
+    
+    //io.sockets.in(2).emit('message', 'room2');
+    //io.sockets.in(3).emit('message', 'room3');
     
     if (i == 0) {
 //        console.log("first");
@@ -41,19 +45,20 @@ socket.on('room',function(room)
 
     socket.on("seek", function(msg) {
 //        console.log(msg);
-        io.emit("current", msg);
+        io.sockets.in(roomNumber).emit("current", msg);
     });
 
     socket.on("play", function(msg) {
-        io.emit("play", msg);
+        io.sockets.in(roomNumber).emit("play", msg);
+        console.log(roomNumber);
     });
 
     socket.on("pause",function(msg) {
-        io.emit("pause", msg);
+        io.sockets.in(roomNumber).emit("pause", msg);
     });
 
     socket.on("reset", function(msg) {
-        io.emit("reset", msg);
+        io.sockets.in(roomNumber).emit("reset", msg);
     });
 
     socket.on("disconnect", function () {
@@ -74,7 +79,7 @@ socket.on('room',function(room)
 app.use(express.static(__dirname ));
 var port = process.env.PORT || 1337;
 
-http.listen(8887, function () {
-//    console.log ("Server running on port 8888");
+http.listen(8888, function () {
+console.log ("Server running on port 8888");
 //     startTimer();
 });

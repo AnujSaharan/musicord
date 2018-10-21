@@ -6,22 +6,23 @@
     <title>Musicord</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="js/granim.min.js" type="text/javascript"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </head>
-
+<canvas id="granim-canvas"></canvas>
 <body>
-    <canvas id="granim-canvas"></canvas>
+    
 	
-<div class ="full-screen"></div>
+    <script src="granim.min.js"></script>
+
 
     <script>
     var granimInstance = new Granim({
-        element: '.full-screen',
+    
         element: '#granim-canvas',
         name: 'granim',
         opacity: [1, 1],

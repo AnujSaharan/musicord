@@ -1,8 +1,11 @@
 $(function () {
-
-    var socket = io.connect();
     
-    var room = "testroom";
+    var socket = io.connect();
+    var str = window.location.pathname
+    str = str[str.length-1];
+    
+    var room = str;
+    //alert(room);
     socket.on('connect', function() {
         socket.emit('room',room);
     });
@@ -13,8 +16,8 @@ $(function () {
     
     
     socket.on('time', function (msg) {
-        // $('.timer-div').html(msg);
-        // $('.timer-div').html(audio.currentTime);
+         $('.timer-div').html(msg);
+         $('.timer-div').html(audio.currentTime);
     });
 
     var audio = document.getElementById('audio-id');
@@ -57,7 +60,7 @@ $(function () {
     });
 
     socket.on("reset", function (msg) {
-        console.log(msg);
+        //console.log(msg);
         socket.emit("pause", 0.00);
         $('input[name=track]').attr('checked', false);        
         $('input[value='+ msg +']').attr('checked', true);
